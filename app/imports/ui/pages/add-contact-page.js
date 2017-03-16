@@ -55,3 +55,10 @@ Template.Add_Contact_Page.events({
   },
 });
 
+Template.Add_Contact_Page.events({
+  'click .delete'(event, instance) {
+    event.preventDefault();
+    Contacts.remove(newContactData);
+    FlowRouter.go('Home_Page');
+  },
+});
