@@ -29,7 +29,7 @@ Template.Add_Contact_Page.helpers({
 
 
 Template.Add_Contact_Page.events({
-  'submit .contact-data-form'(event, instance) {
+  'submit .contacts-data-form'(event, instance) {
     event.preventDefault();
     // Get name (text field)
     const first = event.target.First.value;
@@ -49,16 +49,8 @@ Template.Add_Contact_Page.events({
       Contacts.insert(newContactData);
       instance.messageFlags.set(displayErrorMessages, false);
       FlowRouter.go('Home_Page');
-      } else {
+    } else {
       instance.messageFlags.set(displayErrorMessages, true);
     }
-  },
-});
-
-Template.Add_Contact_Page.events({
-  'click .delete'(event, instance) {
-    event.preventDefault();
-    Contacts.remove(newContactData);
-    FlowRouter.go('Home_Page');
   },
 });
